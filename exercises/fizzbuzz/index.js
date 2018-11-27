@@ -14,7 +14,7 @@
 
 function fizzBuzz(n) {
   for (let i = 1; i <= n; i++) {
-    if (i % 3 === 0 && i % 5 === 0) {
+    if (i % (3*5) === 0) { //Procuro pelo múltiplo de 3 e 5 logo seria 15, então não preciso repetir i % 3 e i % 5
       console.log("fizzbuzz");
     } else if (i % 3 === 0) {
       console.log("fizz");
