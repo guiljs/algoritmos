@@ -32,19 +32,32 @@
 //   return newArray;
 // }
 
+// function chunk(array, size) {
+//   let chunked = [];
+
+//   for (let element of array) {
+//     let last = chunked[chunked.length - 1]; //Pega o último array dentro do array chunked
+
+//     if (!last || last.length === size) {
+//       chunked.push([element]); //Se não existir ou já ter o tamanho do parametro size, cria um novo array (subarray) que já contém o elemento atual da iteração.
+//     } else{
+//         last.push(element); //Se existir e ainda não estiver no tamanho maximo permitido, adiciono no subarray o elemento.
+//     }
+//   }
+
+//   return chunked;
+// }
+
 function chunk(array, size) {
   let chunked = [];
+  let index = 0;
 
-  for (let element of array) {
-    let last = chunked[chunked.length - 1]; //Pega o último array dentro do array chunked
-
-    if (!last || last.length === size) {
-      chunked.push([element]); //Se não existir ou já ter o tamanho do parametro size, cria um novo array (subarray) que já contém o elemento atual da iteração.
-    } else{
-        last.push(element); //Se existir e ainda não estiver no tamanho maximo permitido, adiciono no subarray o elemento. 
-    }
+  while (index < array.length) {
+    chunked.push(array.slice(index, index + size));
+    index += size;
   }
 
   return chunked;
 }
+
 module.exports = chunk;
