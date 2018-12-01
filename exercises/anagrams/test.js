@@ -25,3 +25,17 @@ test('"A tree, a life, a bench" is not an anagram of "A tree, a fence, a yard"',
     anagrams('A tree, a life, a bench', 'A tree, a fence, a yard')
   ).toBeFalsy();
 });
+
+
+test('"Same letters but different occurences - SHOULD be FALSE?"', () => {
+  expect(
+    anagrams('ABC','AABC')
+  ).toBeFalsy();
+});
+
+
+test('"Same letters but different occurences - TRUE"', () => {
+  expect(
+    anagrams('CBAA','AABC')
+  ).toBeTruthy();
+});
